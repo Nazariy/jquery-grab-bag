@@ -5,29 +5,27 @@
             
             var $this       = $(this),
                 minHeight   = $this.height(),
-                lineHeight  = parseInt($this.css('lineHeight'));//get real integer value for line height
+                lineHeight  = parseInt($this.css('lineHeight'));
             
             var shadow = $('<div></div>').css({
                 position:   'absolute',
                 top:        -10000,
                 left:       -10000,
                 width:      $(this).width(),
-                whiteSpace:	'pre-line',//that would format line breaks as <br /> does
+                whiteSpace: 'pre-line',//that would format line breaks as <br /> does
                 fontSize:   $this.css('fontSize'),
                 fontFamily: $this.css('fontFamily'),
                 lineHeight: $this.css('lineHeight'),
                 resize:     'none'
             }).appendTo(document.body);
-            
-            
-            //shadow = shadow.val().replace(/<br[ \/]*>/g,'\n');
+
             var update = function() {
-            	
+
                 var times = function(string, number) {
                     for (var i = 0, r = ''; i < number; i ++) r += string;
                     return r;
                 };
-				                
+
                 var val = this.value.replace(/</g, '&lt;')
                                     .replace(/>/g, '&gt;')
                                     .replace(/&/g, '&amp;')
